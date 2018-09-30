@@ -4,11 +4,11 @@
 %table#movies
   %thead
     %tr
-      = form_tag ratings_form, :method => :get do
+      = form_tag movies_path, :method => :get do
         Include:
         - @all_ratings.each do |rating|
           = rating
-          = check_box_tag "ratings[#{rating}]",'',('checked' if @t_param.include? rating)
+          = submit_tag "ratings[#{rating}]",'',('checked' if @t_param.include? rating)
         = ratings_submit 'Refresh'
       %th{class:('hilite' if @sort=='title')}=link_to "Movie Title",movies_path(sort:"title"),id:"title_header"
       %th Rating
