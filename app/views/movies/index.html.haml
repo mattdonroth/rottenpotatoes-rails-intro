@@ -10,9 +10,9 @@
           = rating
           = check_box_tag "ratings[#{rating}]",'',('checked' if @t_param.include? rating)
         = submit_tag 'Refresh', :id => 'ratings_submit'
-      %th{class:('hilite' if @sort=='title')}=link_to "Movie Title",movies_path(sort:"title"), :id => "title_header", :class => 'hilite'
+      %th{:id => "title_header", :class => ('hilite' if @sort=='title')}=link_to "Movie Title",movies_path(sort:"title")
       %th Rating
-      %th{class:('hilite' if @sort=='release_date')}=link_to "Release Date",movies_path(sort:"release_date"), :id => "release_date_header", :class => 'hilite'
+      %th{:id => "release_date_header", :class=>('hilite' if @sort=='release_date')}=link_to "Release Date",movies_path(sort:"release_date")
       %th More Info
   %tbody
     - @movies.each do |movie|
